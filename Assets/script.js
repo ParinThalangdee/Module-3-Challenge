@@ -1,3 +1,6 @@
+// Assignment code here
+
+//characters sorted into object below
 const characters = {
   lowerCase: 'abcdefghijklmnopqrstuvwxyz',
   upperCase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
@@ -5,8 +8,11 @@ const characters = {
   specialChar: "!#$%&'*+,-./:;<=>?@[\]^_`{|}~",
 };
 
+//Below: Main function for prompts.
 function generatePassword() {
+  //passwordCharset will accumulate all object properties from the object characters 
   var passwordCharSet = "";
+  //Validating integers for length 
   var length = Number.parseInt(window.prompt("How many characters will your password need?(between 8 - 128 characters)"));
   console.log(length);
   if (Number.isInteger(length) === true) {
@@ -17,6 +23,7 @@ function generatePassword() {
     return;
   }
   var lowerCase = window.prompt("Will your password need lower case? Yes or No");
+  //Validating lowerCase variable - yes or no responses from user
   if (lowerCase.toLowerCase() == 'yes') {
     passwordCharSet += characters.lowerCase;
     console.log("Lower case is needed.")
@@ -28,6 +35,7 @@ function generatePassword() {
     return;
   }
   var upperCase = window.prompt("Will your password need upper case? Yes or No");
+  //Validating upperCase variable - yes or no responses from user
   if (upperCase.toLowerCase() == 'yes') {
     passwordCharSet += characters.upperCase;
     console.log("Upper case is needed.")
@@ -39,6 +47,7 @@ function generatePassword() {
     return;
   }
   var number = window.prompt("Will your password need numbers? Yes or No")
+  //Validating number variable - yes or no responses from user
   if (number.toLowerCase() == 'yes') {
     passwordCharSet += characters.number;
     console.log("Numbers are needed.")
@@ -51,6 +60,7 @@ function generatePassword() {
   }
   var specialChar = window.prompt("Will your password need special characters? Yes or No");
   if (specialChar.toLowerCase() == 'yes') {
+    //Validating specialChar variable for symbols - yes or no responses from user
     passwordCharSet += characters.specialChar;
     console.log("Special Characters are needed.")
   } else if (specialChar.toLowerCase() == 'no') {
@@ -60,6 +70,7 @@ function generatePassword() {
     generatePassword();
     return;
   }
+  //For loop iterating through each value of length and placing a random character from passwordCharset
   var password = "";
   for (let i = 0; i < length; i++) {
     console.log(i);
@@ -71,6 +82,7 @@ function generatePassword() {
     console.log(passwordCharSet);
     password += passwordCharSet[index];
   }
+  //return result of for loop
   return password;
 }
 
