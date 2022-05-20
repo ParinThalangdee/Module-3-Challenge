@@ -14,9 +14,8 @@ function generatePassword() {
   var passwordCharSet = "";
   //Validating integers for length 
   var length = Number.parseInt(window.prompt("How many characters will your password need?(between 8 - 128 characters)"));
-  console.log(length);
   if (Number.isInteger(length) === true && length >= 8 && length <= 128) {
-    console.log("Length is Integer");
+    console.log("Length is Integer with value of: " + length);
   } else {
     window.alert("Invalid entry. Please try again.");
     generatePassword();
