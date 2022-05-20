@@ -69,6 +69,13 @@ function generatePassword() {
     generatePassword();
     return;
   }
+  //Validating passwordCharSet has a value for loop to use
+  console.log("length of passwordCharSet: " + passwordCharSet.length)
+  if (passwordCharSet.length === 0) {
+    window.alert("No characters selected. Please try again.");
+    generatePassword();
+    return;
+  }
   //For loop iterating through each value of length and placing a random character from passwordCharset
   var password = "";
   for (let i = 0; i < length; i++) {
